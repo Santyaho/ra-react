@@ -1,16 +1,37 @@
-Before logging an issue:
+<!--
+Thank you for contributing!
 
-* Ensure you have followed instructions in the [README](https://github.com/coryhouse/react-slingshot/blob/master/README.md)
-* Read the [FAQ](https://github.com/coryhouse/react-slingshot/blob/master/docs/FAQ.md)
-* Look through existing [open](https://github.com/coryhouse/react-slingshot/issues) and [closed](https://github.com/coryhouse/react-slingshot/issues?q=is%3Aissue+is%3Aclosed) issues to see if someone has reported the issue before
-* Still stuck? Report a new issue
+Have a usage question?
+======================
+The issue tracker isn't the best place for usage questions. This format is not well-suited for Q&A, and questions here don't have as much visibility as they do elsewhere. Before you ask a question, look for/ask questions on stack overflow: https://stackoverflow.com
 
-Node version:
 
-npm version:
+Think you found a bug?
+======================
+The best bug report is a failing test in the repository as a pull request. Otherwise, please use the "BUG REPORT" template below.
 
-Operating system:
 
-Command line used:
+Have a feature request?
+=======================
+Remove the template from below and provide thoughtful commentary *and code samples* on what this feature means for your product. What will it allow you to do that you can't do today? How will it make current work-arounds straightforward? What potential bugs and edge cases does it help to avoid? etc. Please keep it product-centric.
+-->
 
-Steps to reproduce:
+<!-- BUG TEMPLATE -->
+
+## Issue summary
+
+## Environment
+
+**os:**
+
+**node version:**
+
+**yarn or npm?:**
+
+**yarn/npm version:**
+
+## Steps to reproduce
+
+## Expected Behavior
+
+## Actual Behavior
