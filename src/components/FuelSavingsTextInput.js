@@ -1,31 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const FuelSavingsTextInput = (props) => {
-  const handleChange = (e) => {
-    props.onChange(props.name, e.target.value);
-  };
+const FuelSavingsTextInput = props => {
+  const handleChange = e => {
+    props.onChange(props.name, e.target.value)
+  }
 
   return (
     <input
-      className="small"
-      type="text"
+      className='small'
+      type='text'
       placeholder={props.placeholder}
       value={props.value}
-      onChange={handleChange}/>
-  );
-};
+      onChange={handleChange}
+    />
+  )
+}
 
-const { string, func, number, oneOfType } = PropTypes;
+const { string, func, number, oneOfType } = PropTypes
 
 FuelSavingsTextInput.propTypes = {
   name: string.isRequired,
   onChange: func.isRequired,
   placeholder: string,
-  value: oneOfType([
-    string,
-    number
-  ])
-};
+  value: oneOfType([string, number])
+}
 
-export default FuelSavingsTextInput;
+export default FuelSavingsTextInput
