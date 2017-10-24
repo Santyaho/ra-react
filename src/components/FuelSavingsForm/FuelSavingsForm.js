@@ -125,7 +125,7 @@ class FuelSavingsForm extends React.Component {
     )
   }
 }
-const { func, shape, number, bool, string, oneOf } = PropTypes;
+const { func, shape, number, bool, string, oneOf } = PropTypes
 
 FuelSavingsForm.propTypes = {
   saveFuelSavings: func.isRequired,

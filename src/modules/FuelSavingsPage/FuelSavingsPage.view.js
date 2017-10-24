@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import FuelSavingsForm from '../../components/FuelSavingsForm'
 
-
 export const FuelSavingsPage = props => {
   return (
     <FuelSavingsForm
@@ -11,9 +10,9 @@ export const FuelSavingsPage = props => {
       fuelSavings={props.fuelSavings}
     />
   )
-};
+}
 
 FuelSavingsPage.propTypes = {
   actions: PropTypes.object.isRequired,
   fuelSavings: PropTypes.object.isRequired
-};
+}

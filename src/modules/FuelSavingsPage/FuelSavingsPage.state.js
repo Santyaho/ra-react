@@ -5,18 +5,15 @@ import {
 import calculator from '../../utils/fuelSavingsCalculator'
 import objectAssign from 'object-assign'
 import { getFormattedDateTime } from '../../utils/dateHelper'
-import {fuelSavings} from '../../redux/initialState';
+import { fuelSavings } from '../../redux/initialState'
 
 // IMPORTANT: Note that with Redux, state should NEVER be changed.
 // State is considered immutable. Instead,
 // create a copy of the state passed and set new values on the copy.
 // Note that I'm using Object.assign to create a copy of current state
 // and update values on the copy.
-export default function fuelSavingsReducer (
-  state=fuelSavings,
-  action
-) {
-  let newState;
+export default function fuelSavingsReducer (state = fuelSavings, action) {
+  let newState
 
   switch (action.type) {
     case SAVE_FUEL_SAVINGS:
@@ -71,4 +68,4 @@ export function calculateFuelSavings (settings, fieldName, value) {
 export const actions = {
   saveFuelSavings,
   calculateFuelSavings
-};
+}

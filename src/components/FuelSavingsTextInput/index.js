@@ -1,2 +1,2 @@
-import FuelSavingsTextInput from './FuelSavingsTextInput';
-export default FuelSavingsTextInput;
+import FuelSavingsTextInput from './FuelSavingsTextInput'
+export default FuelSavingsTextInput

@@ -39,6 +39,8 @@
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
   "dependencies": {
+    "material-ui": "^1.0.0-beta.18",
+    "material-ui-icons": "^1.0.0-beta.17",
     "object-assign": "4.1.0",
     "react": "16.0.0",
     "react-dom": "16.0.0",

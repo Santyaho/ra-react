@@ -1,2 +1,2 @@
-import FuelSavingsForm from './FuelSavingsForm';
-export default FuelSavingsForm;
+import FuelSavingsForm from './FuelSavingsForm'
+export default FuelSavingsForm
