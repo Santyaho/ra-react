@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FuelSavingsResults from './FuelSavingsResults'
-import FuelSavingsTextInput from './FuelSavingsTextInput'
+import FuelSavingsResults from '../FuelSavingsResults'
+import FuelSavingsTextInput from '../FuelSavingsTextInput'
 
 class FuelSavingsForm extends React.Component {
   constructor (props, context) {
@@ -125,7 +125,7 @@ class FuelSavingsForm extends React.Component {
     )
   }
 }
-const { func, shape, number, bool, string, oneOf } = PropTypes
+const { func, shape, number, bool, string, oneOf } = PropTypes;
 
 FuelSavingsForm.propTypes = {
   saveFuelSavings: func.isRequired,

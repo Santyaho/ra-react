@@ -1,5 +1,4 @@
-export default {
-  fuelSavings: {
+export const fuelSavings = {
     newMpg: '',
     tradeMpg: '',
     newPpg: '',
@@ -14,5 +13,4 @@ export default {
       annual: 0,
       threeYear: 0
     }
-  }
 }

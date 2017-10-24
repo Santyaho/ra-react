@@ -1,10 +1,11 @@
 import {
   SAVE_FUEL_SAVINGS,
   CALCULATE_FUEL_SAVINGS
-} from '../constants/actionTypes'
-import calculator from '../utils/fuelSavingsCalculator'
+} from '../../redux/actionTypes'
+import calculator from '../../utils/fuelSavingsCalculator'
 import objectAssign from 'object-assign'
-import initialState from './initialState'
+import { getFormattedDateTime } from '../../utils/dateHelper'
+import {fuelSavings} from '../../redux/initialState';
 
 // IMPORTANT: Note that with Redux, state should NEVER be changed.
 // State is considered immutable. Instead,
@@ -12,10 +13,10 @@ import initialState from './initialState'
 // Note that I'm using Object.assign to create a copy of current state
 // and update values on the copy.
 export default function fuelSavingsReducer (
-  state = initialState.fuelSavings,
+  state=fuelSavings,
   action
 ) {
-  let newState
+  let newState;
 
   switch (action.type) {
     case SAVE_FUEL_SAVINGS:
@@ -41,3 +42,33 @@ export default function fuelSavingsReducer (
       return state
   }
 }
+
+/* FUEL SAVINGS ACTIONS */
+
+// example of a thunk using the redux-thunk middleware
+export function saveFuelSavings (settings) {
+  return function (dispatch) {
+    // thunks allow for pre-processing actions, calling apis, and dispatching multiple actions
+    // in this case at this point we could call a service that would persist the fuel savings
+    return dispatch({
+      type: SAVE_FUEL_SAVINGS,
+      dateModified: getFormattedDateTime(),
+      settings
+    })
+  }
+}
+
+export function calculateFuelSavings (settings, fieldName, value) {
+  return {
+    type: CALCULATE_FUEL_SAVINGS,
+    dateModified: getFormattedDateTime(),
+    settings,
+    fieldName,
+    value
+  }
+}
+
+export const actions = {
+  saveFuelSavings,
+  calculateFuelSavings
+};

@@ -2,10 +2,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Switch, NavLink, Route } from 'react-router-dom'
-import HomePage from './HomePage'
-import FuelSavingsPage from '../containers/FuelSavingsPage'
-import AboutPage from './AboutPage'
-import NotFoundPage from './NotFoundPage'
+import HomePage from './../components/HomePage'
+import FuelSavingsPage from './../modules/FuelSavingsPage'
+import AboutPage from './../components/AboutPage'
+import NotFoundPage from './../components/NotFoundPage'
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
