@@ -14,3 +14,7 @@ export const fuelSavings = {
     threeYear: 0
   }
 }
+
+export const dialogState = {
+  list: []
+}

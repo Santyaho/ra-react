@@ -1,6 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react'
 import PropTypes from 'prop-types'
+import DialogRoot from './../modules/Dialog/DialogRoot/DialogRoot.container'
 import { NavLink } from 'react-router-dom'
 import Routes from './Routes'
 import AppBar from './AppBar'
@@ -28,9 +29,14 @@ class App extends React.Component {
             <NavLink to='/about' activeStyle={activeStyle}>
               About
             </NavLink>
+            {' | '}
+            <NavLink to='/dialog' activeStyle={activeStyle}>
+              Dialog
+            </NavLink>
           </div>
           <Routes />
         </div>
+        <DialogRoot />
       </div>
     )
   }
