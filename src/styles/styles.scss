@@ -7,8 +7,11 @@ body {
 
 #mainContainer {
   max-width: 900px;
-  margin: auto;
   padding: 16px;
   position: relative;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 84px);
+}
+
+a {
+  text-decoration: none;
 }

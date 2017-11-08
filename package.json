@@ -179,7 +179,8 @@
       "jest",
       "expect",
       "fetch",
-      "__DEV__"
+      "__DEV__",
+      "alert"
     ],
     "ignore": [
       "/src/webpack-public-path.js"

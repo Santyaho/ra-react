@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import { DialogContent, DialogActions, DialogTitle } from 'material-ui/Dialog'
 import Button from 'material-ui/Button'
 import { withStyles } from 'material-ui/styles'
-import { dialog as styles } from '../Theme'
+import { dialog as styles } from '../theme'
 
 class FormDialog extends Component {
   constructor (props) {

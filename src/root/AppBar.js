@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import { connect } from 'react-redux'
+import { drawerActions } from '../modules/Drawer/Drawer.state'
 import { withStyles } from 'material-ui/styles'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
@@ -7,38 +8,53 @@ import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
-
-const styles = theme => ({
-  flex: {
-    flex: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  }
-})
+import Hidden from 'material-ui/Hidden'
+import Drawer from './../modules/Drawer/Drawer.container'
+import { appBar as styles } from './theme'
+import { bindActionCreators } from 'redux'
 
 class AppBarComponent extends Component {
   render () {
-    const { classes } = this.props
+    const { classes, disabled, drawerActions } = this.props
+    const { toggleDisableDrawer, toggleDrawer } = drawerActions
+    const icon = disabled ? null : (
+      <Hidden mdUp>
+        <IconButton
+          color='contrast'
+          aria-label='open drawer'
+          onClick={toggleDrawer}
+          className={classes.navIconHide}
+        >
+          <MenuIcon />
+        </IconButton>
+      </Hidden>
+    )
     return (
-      <AppBar position='static'>
-        <Toolbar>
-          <IconButton
-            className={classes.menuButton}
-            color='inherit'
-            aria-label='Menu'
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography type='title' color='inherit' className={classes.flex}>
-            Title
-          </Typography>
-          <Button color='inherit'>Login</Button>
-        </Toolbar>
-      </AppBar>
+      <div>
+        <AppBar className={disabled ? classes.appBarFull : classes.appBar}>
+          <Toolbar>
+            {icon}
+            <Typography type='title' color='inherit' className={classes.flex}>
+              Title
+            </Typography>
+            <Button onClick={toggleDisableDrawer} color='inherit'>
+              Login
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <Drawer />
+      </div>
     )
   }
 }
 
-export default withStyles(styles)(AppBarComponent)
+export default withStyles(styles)(
+  connect(
+    ({ drawer }) => ({
+      disabled: drawer.disabled
+    }),
+    dispatch => ({
+      drawerActions: bindActionCreators(drawerActions, dispatch)
+    })
+  )(AppBarComponent)
+)

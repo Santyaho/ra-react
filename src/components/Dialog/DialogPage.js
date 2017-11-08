@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from 'material-ui/Button'
-import { dialog as styles } from './Theme'
+import { dialog as styles } from './theme'
 import { withStyles } from 'material-ui/styles'
 
 class DialogPage extends Component {
