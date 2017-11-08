@@ -43,13 +43,18 @@ export const rootStyle = theme => ({
     width: '100%'
   },
   content: {
+    margin: 'auto',
+    maxWidth: '900px',
+    padding: '16px',
+    position: 'relative',
+
     backgroundColor: theme.palette.background.default,
     width: '100%',
     padding: theme.spacing.unit * 3,
-    height: 'calc(100% - 56px)',
+    height: 'calc(100vh - 56px)',
     marginTop: 56,
     [theme.breakpoints.up('sm')]: {
-      height: 'calc(100% - 64px)',
+      height: 'calc(100vh - 64px)',
       marginTop: 64
     }
   }

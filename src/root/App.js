@@ -17,7 +17,7 @@ class App extends React.Component {
       <div className={classes.root}>
         <div className={classes.appFrame}>
           <AppBar />
-          <div id='mainContainer' className={classes.content}>
+          <div className={classes.content}>
             <Routes />
           </div>
           <DialogRoot />

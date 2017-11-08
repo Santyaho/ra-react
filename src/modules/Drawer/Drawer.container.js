@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import Drawer, { drawerWidth } from './Drawer.view'
 import { drawerActions } from './Drawer.state'
-import { rootActions } from '../../root/Root.state'
 import { bindActionCreators } from 'redux'
+import { push } from 'react-router-redux'
 
 export { drawerWidth }
 export default connect(
@@ -13,6 +13,6 @@ export default connect(
   }),
   dispatch => ({
     drawerActions: bindActionCreators(drawerActions, dispatch),
-    rootActions: bindActionCreators(rootActions, dispatch)
+    push: bindActionCreators(push, dispatch)
   })
 )(Drawer)

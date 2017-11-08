@@ -138,7 +138,8 @@
       "development": {
         "presets": [
           "env",
-          "react-hmre"
+          "react-hmre",
+          "stage-1"
         ]
       },
       "production": {

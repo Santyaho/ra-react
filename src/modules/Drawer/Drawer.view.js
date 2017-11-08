@@ -20,7 +20,7 @@ import SettingsIcon from 'material-ui-icons/Settings'
 class ResponsiveDrawer extends Component {
   constructor (props) {
     super(props)
-    const { push } = props.rootActions
+    const { push } = props
     this.menuItems = {
       center: [
         {

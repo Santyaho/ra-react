@@ -3,12 +3,14 @@ import { fuelSavingsReducer } from '../modules/FuelSavingsPage'
 import { dialogReducer } from '../modules/Dialog'
 import { drawerReducer } from '../modules/Drawer'
 import { routerReducer } from 'react-router-redux'
+import {signInRootReducer} from '../modules/SignIn/SignIn.state'
 
 const rootReducer = combineReducers({
   fuelSavings: fuelSavingsReducer,
+  routing: routerReducer,
+  signInState: signInRootReducer,
   dialog: dialogReducer,
   drawer: drawerReducer,
-  routing: routerReducer
 })
 
 export default rootReducer

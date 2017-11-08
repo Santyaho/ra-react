@@ -14,6 +14,17 @@ import { appBar as styles } from './theme'
 import { bindActionCreators } from 'redux'
 
 class AppBarComponent extends Component {
+  constructor (props) {
+    super(props)
+    this.signOut = this.signOut.bind(this)
+  }
+
+  signOut () {
+    const {signOut, push} = this.props
+    push('/')
+    signOut()
+  };
+
   render () {
     const { classes, disabled, drawerActions } = this.props
     const { toggleDisableDrawer, toggleDrawer } = drawerActions
@@ -37,9 +48,7 @@ class AppBarComponent extends Component {
             <Typography type='title' color='inherit' className={classes.flex}>
               Title
             </Typography>
-            <Button onClick={toggleDisableDrawer} color='inherit'>
-              Login
-            </Button>
+            <Button onClick={this.signOut} color='inherit'>Sign Out</Button>
           </Toolbar>
         </AppBar>
         <Drawer />
