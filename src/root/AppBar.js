@@ -20,10 +20,10 @@ class AppBarComponent extends Component {
   }
 
   signOut () {
-    const {signOut, push} = this.props
+    const { signOut, push } = this.props
     push('/')
     signOut()
-  };
+  }
 
   render () {
     const { classes, disabled, drawerActions } = this.props
@@ -48,7 +48,9 @@ class AppBarComponent extends Component {
             <Typography type='title' color='inherit' className={classes.flex}>
               Title
             </Typography>
-            <Button onClick={this.signOut} color='inherit'>Sign Out</Button>
+            <Button onClick={this.signOut} color='inherit'>
+              Sign Out
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer />

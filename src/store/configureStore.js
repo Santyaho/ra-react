@@ -7,11 +7,26 @@ import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 import rootReducer from '../redux'
 export const history = createHistory()
+import io from 'socket.io-client'
+import createSocketIoMiddleware from 'redux-socket.io'
+import ls from '../utils/ls'
+import config from '../config'
+
+const token = ls.get('token')
+
+export let socket = io(config.apiServerAddress, {
+  query: {
+    token
+  },
+  transports: ['websocket', 'polling']
+})
+let socketIoMiddleware = createSocketIoMiddleware(socket, 'socket/')
+
 function configureStoreProd (initialState) {
   const reactRouterMiddleware = routerMiddleware(history)
   const middlewares = [
     // Add other middleware on this line...
-
+    socketIoMiddleware,
     // thunk middleware can also accept an extra argument to be passed to each thunk action
     // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
     thunk,
@@ -29,7 +44,7 @@ function configureStoreDev (initialState) {
   const reactRouterMiddleware = routerMiddleware(history)
   const middlewares = [
     // Add other middleware on this line...
-
+    socketIoMiddleware,
     // Redux middleware that spits an error on you when you try to mutate your state either inside a dispatch or between dispatches.
     reduxImmutableStateInvariant(),
 

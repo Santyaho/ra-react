@@ -10,7 +10,7 @@ import Drawer from 'material-ui/Drawer'
 import Hidden from 'material-ui/Hidden'
 import { styles } from './theme'
 
-import HomeIcon from 'material-ui-icons/home'
+import HomeIcon from 'material-ui-icons/Home'
 import DeleteIcon from 'material-ui-icons/Delete'
 import HelpIcon from 'material-ui-icons/HelpOutline'
 import FeaturedVideoIcon from 'material-ui-icons/FeaturedVideo'

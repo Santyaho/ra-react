@@ -16,8 +16,9 @@ const initialSignInState = {
 
 /* SIGN IN */
 
-const signInStart = () => ({
-  type: SIGN_IN_START
+const signInStart = payload => ({
+  type: SIGN_IN_START,
+  payload
 })
 
 const customUser = {
@@ -25,51 +26,52 @@ const customUser = {
   id: 1
 }
 
-const signInSuccess = (payload) => ({
+const signInSuccess = payload => ({
   type: SIGN_IN_SUCCESS,
   payload
 })
 
-const signInFailure = (payload) => ({
+const signInFailure = payload => ({
   type: SIGN_IN_FAILURE,
   payload
 })
 
-export const signInAPI = ({username, password}) => dispatch => {
-  console.log(`Sign in with username ${username} and password ${password}`)
-  dispatch(signInStart())
+export const signInAPI = ({ email, password }) => dispatch => {
+  console.log(`Sign in with email ${email} and password ${password}`)
+  dispatch(signInStart({ email, password }))
   Promise.resolve(customUser)
-    .then((data) => dispatch(signInSuccess(data)))
-    .catch((error) => dispatch(signInFailure(error)))
+    .then(data => dispatch(signInSuccess(data)))
+    .catch(error => dispatch(signInFailure(error)))
 }
 
 /* SIGN OUT */
 
-export const signOut = () => dispatch => dispatch({
-  type: SIGN_OUT
-})
+export const signOut = () => dispatch =>
+  dispatch({
+    type: SIGN_OUT
+  })
 
 const signInReducers = {
-  SIGN_IN_START: (state) => ({
+  SIGN_IN_START: state => ({
     ...state,
     inProgress: true
   }),
   SIGN_IN_SUCCESS: (state, data) => {
-    const {name, id} = data
-    return ({
+    const { name, id } = data
+    return {
       ...state,
       inProgress: false,
       name,
       id,
       signedIn: true
-    })
+    }
   },
   SIGN_IN_FAILURE: (state, data) => ({
     ...state,
     inProgress: false,
     data
   }),
-  SIGN_OUT: (state) => ({
+  SIGN_OUT: state => ({
     ...state,
     signedIn: false,
     id: 0,
