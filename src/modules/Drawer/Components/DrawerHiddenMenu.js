@@ -5,7 +5,7 @@ import { withStyles } from 'material-ui/styles'
 import { styles } from '../theme'
 import DrawerMenuItem from './DrawerMenuItem'
 
-class HiddenBlock extends Component {
+export class HiddenBlock extends Component {
   render () {
     const { opened, toggleDrawer, items } = this.props
 

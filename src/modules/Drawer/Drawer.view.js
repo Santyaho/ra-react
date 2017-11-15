@@ -17,7 +17,7 @@ import FeaturedVideoIcon from 'material-ui-icons/FeaturedVideo'
 import ExitToAppIcon from 'material-ui-icons/ExitToApp'
 import SettingsIcon from 'material-ui-icons/Settings'
 
-class ResponsiveDrawer extends Component {
+export class ResponsiveDrawer extends Component {
   constructor (props) {
     super(props)
     const { push } = props

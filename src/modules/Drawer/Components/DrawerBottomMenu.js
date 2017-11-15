@@ -5,7 +5,7 @@ import { withStyles } from 'material-ui/styles'
 import { styles } from '../theme'
 import DrawerMenuItem from './DrawerMenuItem'
 
-class BottomBlock extends Component {
+export class BottomBlock extends Component {
   render () {
     const { opened, toggleDrawer, items } = this.props
 

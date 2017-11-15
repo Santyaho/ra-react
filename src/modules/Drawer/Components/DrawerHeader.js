@@ -6,7 +6,7 @@ import { ListItem, ListItemText } from 'material-ui/List'
 import { withStyles } from 'material-ui/styles'
 import { styles } from '../theme'
 
-class HeaderBlock extends Component {
+export class HeaderBlock extends Component {
   render () {
     const { primary, secondary, toggleHiddenBlock, classes } = this.props
     return (

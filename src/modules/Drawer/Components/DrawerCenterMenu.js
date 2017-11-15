@@ -5,7 +5,7 @@ import { withStyles } from 'material-ui/styles'
 import { styles } from '../theme'
 import DrawerMenuItem from './DrawerMenuItem'
 
-class CenterBlock extends Component {
+export class CenterBlock extends Component {
   render () {
     const { classes, opened, toggleDrawer, items } = this.props
 
