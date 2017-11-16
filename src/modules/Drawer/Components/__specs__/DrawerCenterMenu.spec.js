@@ -6,7 +6,7 @@ describe('DrawerCenterMenu', () => {
   let toggleDrawer, items, opened, wrapper, classes
   beforeEach(() => {
     toggleDrawer = jest.fn()
-    items = [{label: 'testItem1'}]
+    items = [{ label: 'testItem1' }]
     classes = {
       flexCenter: 'flexCenter',
       centerList: 'centerList'
@@ -25,15 +25,26 @@ describe('DrawerCenterMenu', () => {
     expect(wrapper).toMatchSnapshot()
   })
   it('should handle onClick()', () => {
-    wrapper.childAt(0).props().onClick()
+    wrapper
+      .childAt(0)
+      .props()
+      .onClick()
     expect(toggleDrawer.mock.calls.length).toEqual(1)
-    wrapper.setProps({opened: false})
-    wrapper.childAt(0).props().onClick()
+    wrapper.setProps({ opened: false })
+    wrapper
+      .childAt(0)
+      .props()
+      .onClick()
     expect(toggleDrawer.mock.calls.length).toEqual(1)
   })
 
   it('should render DrawerCenterMenu with label', () => {
-    expect(wrapper.childAt(0).childAt(0).props().label).toEqual(items[0].label)
+    expect(
+      wrapper
+        .childAt(0)
+        .childAt(0)
+        .props().label
+    ).toEqual(items[0].label)
   })
 
   it('should render elements with defined classes', () => {

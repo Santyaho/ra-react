@@ -3,7 +3,13 @@ import { shallow } from 'enzyme'
 import { ResponsiveDrawer } from '../Drawer.view'
 
 describe('<ResponsiveDrawer />', () => {
-  let toggleDrawer, toggleHiddenBlock, opened, wrapper, classes, disabled, drawerActions,
+  let toggleDrawer,
+    toggleHiddenBlock,
+    opened,
+    wrapper,
+    classes,
+    disabled,
+    drawerActions,
     showedHiddenBlock
   beforeEach(() => {
     classes = {
@@ -39,25 +45,53 @@ describe('<ResponsiveDrawer />', () => {
   })
 
   it('should handle toggleHiddenBlock and toggleDrawer', () => {
-    wrapper.childAt(0).childAt(0).props().onRequestClose()
+    wrapper
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onRequestClose()
     expect(drawerActions.toggleHiddenBlock.mock.calls.length).toEqual(1)
-    wrapper.setProps({showedHiddenBlock: false})
-    wrapper.childAt(0).childAt(0).props().onRequestClose()
+    wrapper.setProps({ showedHiddenBlock: false })
+    wrapper
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onRequestClose()
     expect(drawerActions.toggleDrawer.mock.calls.length).toEqual(2)
   })
 
   it('should render div className inside or insideHide, relates on props', () => {
-    expect(wrapper.childAt(1).childAt(0).props().className).toEqual(classes.inside)
-    wrapper.setProps({disabled: true})
-    expect(wrapper.childAt(1).childAt(0).props().className).toEqual(classes.insideHide)
+    expect(
+      wrapper
+        .childAt(1)
+        .childAt(0)
+        .props().className
+    ).toEqual(classes.inside)
+    wrapper.setProps({ disabled: true })
+    expect(
+      wrapper
+        .childAt(1)
+        .childAt(0)
+        .props().className
+    ).toEqual(classes.insideHide)
   })
 
   it('should render div className drawerPaper or drawerPaperDis, relates on props', () => {
-    expect(wrapper.childAt(1).childAt(1).props().classes).toMatchObject({
+    expect(
+      wrapper
+        .childAt(1)
+        .childAt(1)
+        .props().classes
+    ).toMatchObject({
       paper: classes.drawerPaper
     })
-    wrapper.setProps({disabled: true})
-    expect(wrapper.childAt(1).childAt(1).props().classes).toMatchObject({
+    wrapper.setProps({ disabled: true })
+    expect(
+      wrapper
+        .childAt(1)
+        .childAt(1)
+        .props().classes
+    ).toMatchObject({
       paper: classes.drawerPaperDis
     })
   })

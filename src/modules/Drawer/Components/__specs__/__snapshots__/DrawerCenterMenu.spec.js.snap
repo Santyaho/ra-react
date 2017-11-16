@@ -1,163 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DrawerCenterMenu should renders as expected 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CenterBlock
-    classes={
-        Object {
-            "centerList": "centerList",
-            "flexCenter": "flexCenter",
-          }
-    }
-    items={
-        Array [
-            Object {
-              "label": "testItem1",
-            },
-          ]
-    }
-    opened={true}
-    toggleDrawer={[Function]}
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": null,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <withStyles(List)
-          className="centerList"
-          onClick={[Function]}
+<div
+  className="flexCenter"
 >
-          <DrawerMenuItem
-                    label="testItem1"
-          />
-</withStyles(List)>,
-        <withStyles(Divider) />,
-      ],
-      "className": "flexCenter",
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            <DrawerMenuItem
-              label="testItem1"
-/>,
-          ],
-          "className": "centerList",
-          "onClick": [Function],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "center_testItem1",
-            "nodeType": "class",
-            "props": Object {
-              "label": "testItem1",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-        ],
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "class",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <withStyles(List)
-            className="centerList"
-            onClick={[Function]}
->
-            <DrawerMenuItem
-                        label="testItem1"
-            />
-</withStyles(List)>,
-          <withStyles(Divider) />,
-        ],
-        "className": "flexCenter",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "class",
-          "props": Object {
-            "children": Array [
-              <DrawerMenuItem
-                label="testItem1"
-/>,
-            ],
-            "className": "centerList",
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "center_testItem1",
-              "nodeType": "class",
-              "props": Object {
-                "label": "testItem1",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
+  <withStyles(List)
+    className="centerList"
+    onClick={[Function]}
+  >
+    <DrawerMenuItem
+      key="center_testItem1"
+      label="testItem1"
+    />
+  </withStyles(List)>
+  <withStyles(Divider) />
+</div>
 `;

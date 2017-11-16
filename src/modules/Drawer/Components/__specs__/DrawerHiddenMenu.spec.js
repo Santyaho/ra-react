@@ -1,19 +1,15 @@
 import React from 'react'
-import {shallow} from 'enzyme'
-import {HiddenBlock} from '../DrawerHiddenMenu'
+import { shallow } from 'enzyme'
+import { HiddenBlock } from '../DrawerHiddenMenu'
 
 describe('DrawerHiddenMenu', () => {
   let toggleDrawer, items, opened, wrapper
   beforeEach(() => {
     toggleDrawer = jest.fn()
-    items = [{label: 'testItem1'}]
+    items = [{ label: 'testItem1' }]
     opened = true
     wrapper = shallow(
-      <HiddenBlock
-        opened={opened}
-        toggleDrawer={toggleDrawer}
-        items={items}
-      />
+      <HiddenBlock opened={opened} toggleDrawer={toggleDrawer} items={items} />
     )
   })
 
@@ -22,10 +18,16 @@ describe('DrawerHiddenMenu', () => {
   })
 
   it('should handle onClick', () => {
-    wrapper.childAt(0).props().onClick()
+    wrapper
+      .childAt(0)
+      .props()
+      .onClick()
     expect(toggleDrawer.mock.calls.length).toEqual(1)
-    wrapper.setProps({opened: false})
-    wrapper.childAt(0).props().onClick()
+    wrapper.setProps({ opened: false })
+    wrapper
+      .childAt(0)
+      .props()
+      .onClick()
     expect(toggleDrawer.mock.calls.length).toEqual(1)
   })
 })

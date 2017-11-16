@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
-import { Card, CardActions, CardHeader, TextField, CardContent } from 'material-ui'
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  TextField,
+  CardContent
+} from 'material-ui'
 import Button from 'material-ui/Button'
 import withStyles from 'material-ui/styles/withStyles'
-import Grid from 'material-ui/Grid';
+import Grid from 'material-ui/Grid'
 
 const styles = theme => ({
   container: {
@@ -43,7 +49,7 @@ class SignInForm extends Component {
       return false
     }
 
-    const { signInAPI, push } = this.props
+    const { signInAPI } = this.props
 
     signInAPI({ email, password })
 
@@ -51,8 +57,6 @@ class SignInForm extends Component {
       email: '',
       password: ''
     })
-
-    // push('/about')
   }
 
   render () {

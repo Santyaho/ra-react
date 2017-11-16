@@ -1,246 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DrawerHeader should renders as expected 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <HeaderBlock
-    classes={
-        Object {
-            "avatarText": "avatarText",
-            "drawerHeader": "drawerHeader",
-            "listItemText": "listItemText",
-          }
-    }
-    primary="primary"
-    secondary="secondary"
-    toggleHiddenBlock={[Function]}
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": null,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <withStyles(ListItem)
-          button={true}
-          onClick={[Function]}
+<div
+  className="drawerHeader"
 >
-          <withStyles(Avatar)>
-                    <pure(AccountCircle) />
-          </withStyles(Avatar)>
-          <withStyles(ListItemText)
-                    classes={
-                              Object {
-                                        "root": "avatarText",
-                                        "text": "listItemText",
-                                      }
-                    }
-                    primary="primary"
-                    secondary="secondary"
-          />
-</withStyles(ListItem)>,
-        <withStyles(Divider) />,
-      ],
-      "className": "drawerHeader",
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "class",
-        "props": Object {
-          "button": true,
-          "children": Array [
-            <withStyles(Avatar)>
-              <pure(AccountCircle) />
-</withStyles(Avatar)>,
-            <withStyles(ListItemText)
-              classes={
-                            Object {
-                                          "root": "avatarText",
-                                          "text": "listItemText",
-                                        }
-              }
-              primary="primary"
-              secondary="secondary"
-/>,
-          ],
-          "onClick": [Function],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "class",
-            "props": Object {
-              "children": <pure(AccountCircle) />,
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": null,
-              "nodeType": "class",
-              "props": Object {},
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "class",
-            "props": Object {
-              "classes": Object {
-                "root": "avatarText",
-                "text": "listItemText",
-              },
-              "primary": "primary",
-              "secondary": "secondary",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-        ],
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "class",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <withStyles(ListItem)
-            button={true}
-            onClick={[Function]}
->
-            <withStyles(Avatar)>
-                        <pure(AccountCircle) />
-            </withStyles(Avatar)>
-            <withStyles(ListItemText)
-                        classes={
-                                    Object {
-                                                "root": "avatarText",
-                                                "text": "listItemText",
-                                              }
-                        }
-                        primary="primary"
-                        secondary="secondary"
-            />
-</withStyles(ListItem)>,
-          <withStyles(Divider) />,
-        ],
-        "className": "drawerHeader",
-      },
-      "ref": null,
-      "rendered": Array [
+  <withStyles(ListItem)
+    button={true}
+    onClick={[Function]}
+  >
+    <withStyles(Avatar)>
+      <pure(AccountCircle) />
+    </withStyles(Avatar)>
+    <withStyles(ListItemText)
+      classes={
         Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "class",
-          "props": Object {
-            "button": true,
-            "children": Array [
-              <withStyles(Avatar)>
-                <pure(AccountCircle) />
-</withStyles(Avatar)>,
-              <withStyles(ListItemText)
-                classes={
-                                Object {
-                                                "root": "avatarText",
-                                                "text": "listItemText",
-                                              }
-                }
-                primary="primary"
-                secondary="secondary"
-/>,
-            ],
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": null,
-              "nodeType": "class",
-              "props": Object {
-                "children": <pure(AccountCircle) />,
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": null,
-                "nodeType": "class",
-                "props": Object {},
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": null,
-              "nodeType": "class",
-              "props": Object {
-                "classes": Object {
-                  "root": "avatarText",
-                  "text": "listItemText",
-                },
-                "primary": "primary",
-                "secondary": "secondary",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
+          "root": "avatarText",
+          "text": "listItemText",
+        }
+      }
+      primary="primary"
+      secondary="secondary"
+    />
+  </withStyles(ListItem)>
+  <withStyles(Divider) />
+</div>
 `;

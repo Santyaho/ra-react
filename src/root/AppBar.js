@@ -27,7 +27,7 @@ class AppBarComponent extends Component {
 
   render () {
     const { classes, disabled, drawerActions } = this.props
-    const { toggleDisableDrawer, toggleDrawer } = drawerActions
+    const { toggleDrawer } = drawerActions
     const icon = disabled ? null : (
       <Hidden mdUp>
         <IconButton

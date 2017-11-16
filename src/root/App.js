@@ -4,16 +4,15 @@ import PropTypes from 'prop-types'
 import DialogRoot from './../modules/Dialog/DialogRoot/DialogRoot.container'
 import Routes from './Routes'
 import AppBar from './AppBar'
-import {withStyles} from 'material-ui/styles'
-import {rootStyle as styles} from './theme'
-import ls from '../utils/ls'
+import { withStyles } from 'material-ui/styles'
+import { rootStyle as styles } from './theme'
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 
 class App extends React.Component {
   render () {
-    const {classes} = this.props
+    const { classes } = this.props
     return (
       <div className={classes.root}>
         <div className={classes.appFrame}>

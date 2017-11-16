@@ -8,11 +8,9 @@ describe('DrawerMenuItem', () => {
     label = 'test'
     onClick = jest.fn()
     Icon = jest.fn()
-    wrapper = shallow(<DrawerMenuItem
-      label={label}
-      onClick={onClick}
-      Icon={Icon}
-    />)
+    wrapper = shallow(
+      <DrawerMenuItem label={label} onClick={onClick} Icon={Icon} />
+    )
   })
 
   it('should renders as expected', () => {

@@ -1,3 +1,7 @@
+import io from 'socket.io-client'
+import createSocketIoMiddleware from 'redux-socket.io'
+import ls from '../utils/ls'
+import config from '../config'
 import { createStore, compose, applyMiddleware } from 'redux'
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import thunk from 'redux-thunk'
@@ -7,10 +11,6 @@ import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 import rootReducer from '../redux'
 export const history = createHistory()
-import io from 'socket.io-client'
-import createSocketIoMiddleware from 'redux-socket.io'
-import ls from '../utils/ls'
-import config from '../config'
 
 const token = ls.get('token')
 

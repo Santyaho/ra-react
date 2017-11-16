@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import FuelSavingsForm from './FuelSavingsForm'
-import FuelSavingsTextInput from './FuelSavingsTextInput'
-import FuelSavingsResults from './FuelSavingsResults'
+import FuelSavingsForm from '../FuelSavingsForm'
+import FuelSavingsTextInput from '../FuelSavingsTextInput'
+import FuelSavingsResults from '../FuelSavingsResults'
 
 describe('<FuelSavingsForm />', () => {
   it('should contain <FuelSavingsTextInput /> components', () => {

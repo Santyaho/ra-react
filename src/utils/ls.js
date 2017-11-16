@@ -2,7 +2,7 @@ export default {
   get (name, defaultData) {
     if (typeof localStorage !== 'undefined') {
       const item = localStorage.getItem(name)
-      if (item && item != 'undefined' && item != 'null' && item != null) {
+      if (item && item !== 'undefined' && item !== 'null' && item != null) {
         return JSON.parse(item)
       } else {
         return defaultData
@@ -17,7 +17,9 @@ export default {
         localStorage.setItem(name, JSON.stringify(data))
         if (callback) callback()
       } catch (e) {
-        if (err) { err('Unable to store ' + name + ' in localStorage due to ' + e.name) }
+        if (err) {
+          err('Unable to store ' + name + ' in localStorage due to ' + e.name)
+        }
       }
     }
   },

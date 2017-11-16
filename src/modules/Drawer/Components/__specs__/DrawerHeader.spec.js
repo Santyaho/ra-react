@@ -28,18 +28,36 @@ describe('DrawerHeader', () => {
   })
 
   it('should handle onClick()', () => {
-    wrapper.childAt(0).props().onClick()
+    wrapper
+      .childAt(0)
+      .props()
+      .onClick()
     expect(toggleHiddenBlock.mock.calls.length).toEqual(1)
   })
 
   it('should render ListItemText with primary and secondary text', () => {
-    expect(wrapper.childAt(0).childAt(1).props().primary).toEqual(primary)
-    expect(wrapper.childAt(0).childAt(1).props().secondary).toEqual(secondary)
+    expect(
+      wrapper
+        .childAt(0)
+        .childAt(1)
+        .props().primary
+    ).toEqual(primary)
+    expect(
+      wrapper
+        .childAt(0)
+        .childAt(1)
+        .props().secondary
+    ).toEqual(secondary)
   })
 
   it('should render elements with defined classes', () => {
     expect(wrapper.props().className).toEqual(classes.drawerHeader)
-    expect(wrapper.childAt(0).childAt(1).props().classes).toMatchObject({
+    expect(
+      wrapper
+        .childAt(0)
+        .childAt(1)
+        .props().classes
+    ).toMatchObject({
       root: classes.avatarText,
       text: classes.listItemText
     })
