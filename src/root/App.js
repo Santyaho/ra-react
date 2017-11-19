@@ -6,6 +6,7 @@ import Routes from './Routes'
 import AppBar from './AppBar'
 import { withStyles } from 'material-ui/styles'
 import { rootStyle as styles } from './theme'
+import Snackbar from './SnackBar'
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -22,6 +23,7 @@ class App extends React.Component {
           </div>
           <DialogRoot />
         </div>
+        <Snackbar />
       </div>
     )
   }

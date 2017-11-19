@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withStyles } from 'material-ui/styles'
 import { CircularProgress } from 'material-ui/Progress'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 const styles = theme => ({
   root: {
@@ -29,7 +29,15 @@ const styles = theme => ({
 class Spinner extends Component {
   render () {
     const { classes } = this.props
-    const {size, thickness, target, spinnerState, forceShow, relative, bgColor} = this.props
+    const {
+      size,
+      thickness,
+      target,
+      spinnerState,
+      forceShow,
+      relative,
+      bgColor
+    } = this.props
     let className = classes.root
     if (forceShow || spinnerState[target]) {
       className = `${classes.root} ${classes.show}`
@@ -38,7 +46,7 @@ class Spinner extends Component {
       className = `${className} ${classes.relative}`
     }
     return (
-      <div className={className} style={{backgroundColor: bgColor}}>
+      <div className={className} style={{ backgroundColor: bgColor }}>
         <CircularProgress
           size={size || 60}
           thickness={thickness || 5}
@@ -49,8 +57,6 @@ class Spinner extends Component {
   }
 }
 
-export default connect(
-  (state) => ({
-    spinnerState: state.spinner
-  })
-)(withStyles(styles)(Spinner))
+export default connect(state => ({
+  spinnerState: state.spinner
+}))(withStyles(styles)(Spinner))

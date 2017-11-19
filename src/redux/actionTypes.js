@@ -7,3 +7,5 @@ export const SIGN_IN_FAILURE = 'SIGN_IN_FAILURE'
 /* SIGN OUT */
 export const SIGN_OUT = 'SIGN_OUT'
 export const SPINNER = 'SPINNER'
+/* SNACK */
+export const SNACK = 'SNACK'

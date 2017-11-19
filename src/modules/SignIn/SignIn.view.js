@@ -4,9 +4,11 @@ import Spinner from '../../components/Spinner'
 
 export default class SignIn extends Component {
   render () {
-    return <div>
-      <SignInForm {...this.props} />
-      <Spinner target='SignIn' />
-    </div>
+    return (
+      <div>
+        <SignInForm {...this.props} />
+        <Spinner target='SignIn' />
+      </div>
+    )
   }
 }
