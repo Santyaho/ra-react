@@ -1,5 +1,5 @@
 import {
-  SIGN_IN_START,
+  SIGN_IN,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAILURE,
   SIGN_OUT
@@ -17,7 +17,7 @@ const initialSignInState = {
 /* SIGN IN */
 
 const signInStart = payload => ({
-  type: SIGN_IN_START,
+  type: SIGN_IN,
   payload
 })
 
@@ -52,7 +52,7 @@ export const signOut = () => dispatch =>
   })
 
 const signInReducers = {
-  SIGN_IN_START: state => ({
+  SIGN_IN: state => ({
     ...state,
     inProgress: true
   }),
