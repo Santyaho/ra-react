@@ -52,11 +52,11 @@ export const signOut = () => dispatch =>
   })
 
 const signInReducers = {
-  SIGN_IN: state => ({
+  [SIGN_IN]: state => ({
     ...state,
     inProgress: true
   }),
-  SIGN_IN_SUCCESS: (state, data) => {
+  [SIGN_IN_SUCCESS]: (state, data) => {
     const { name, id } = data
     return {
       ...state,
@@ -66,12 +66,12 @@ const signInReducers = {
       signedIn: true
     }
   },
-  SIGN_IN_FAILURE: (state, data) => ({
+  [SIGN_IN_FAILURE]: (state, data) => ({
     ...state,
     inProgress: false,
     data
   }),
-  SIGN_OUT: state => ({
+  [SIGN_OUT]: state => ({
     ...state,
     signedIn: false,
     id: 0,
