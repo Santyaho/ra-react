@@ -1,52 +1,45 @@
-import * as dialogActionTypes from '../../../redux/dialogActionTypes'
-import { dialogState } from '../../../redux/initialState'
+import createReducer from '../../../utils/createReducer'
 
-const dialog = (state = dialogState, action) => {
-  const { list } = state
-  switch (action.type) {
-    case dialogActionTypes.SHOW_DIALOG:
-      return {
-        list: [
-          ...list,
-          {
-            dialogType: action.dialogType,
-            dialogProps: action.dialogProps
-          }
-        ]
-      }
+const SHOW_DIALOG = 'SHOW_DIALOG'
+const HIDE_DIALOG = 'HIDE_DIALOG'
+const SAVE_DIALOG = 'SAVE_DIALOG'
 
-    case dialogActionTypes.SAVE_DIALOG:
-      const lastDialog = list[list.length - 1]
-      const newDialogProps = Object.assign(
-        {},
-        lastDialog.dialogProps,
-        action.dialogProps
-      )
-      return {
-        list: [
-          ...list.slice(0, -1),
-          Object.assign({}, lastDialog, {
-            dialogProps: newDialogProps
-          })
-        ]
-      }
+const DialogState = {
+  list: []
+}
 
-    case dialogActionTypes.HIDE_DIALOG:
-      return {
-        list: list.slice(0, -1)
-      }
-    default:
-      return state
-  }
+const dialogReducer = {
+  [SHOW_DIALOG]: ({ list }, { dialogType, dialogProps }) => ({
+    list: [...list, { dialogType, dialogProps }]
+  }),
+  [SAVE_DIALOG]: ({ list }, { dialogProps }) => {
+    const lastDialog = list[list.length - 1]
+    const newDialogProps = Object.assign(
+      {},
+      lastDialog.dialogProps,
+      dialogProps
+    )
+    return {
+      list: [
+        ...list.slice(0, -1),
+        Object.assign({}, lastDialog, {
+          dialogProps: newDialogProps
+        })
+      ]
+    }
+  },
+  [HIDE_DIALOG]: ({ list }) => ({
+    list: list.slice(0, -1)
+  })
 }
 
 const saveDialog = dialogProps => ({
-  type: dialogActionTypes.SAVE_DIALOG,
-  dialogProps
+  type: SAVE_DIALOG,
+  payload: {dialogProps}
 })
 
 export const hideDialog = () => ({
-  type: dialogActionTypes.HIDE_DIALOG
+  type: HIDE_DIALOG
 })
 
 export const showDialog = (
@@ -61,15 +54,17 @@ export const showDialog = (
   }
 
   return dispatch({
-    type: dialogActionTypes.SHOW_DIALOG,
-    dialogType,
-    dialogProps
+    type: SHOW_DIALOG,
+    payload: {
+      dialogType,
+      dialogProps
+    }
   })
 }
+
+export const dialogState = createReducer(dialogReducer, DialogState)
 
 export const actions = {
   hideDialog,
   showDialog
 }
-
-export default dialog

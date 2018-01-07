@@ -61,8 +61,8 @@ class AppBarComponent extends Component {
 
 export default withStyles(styles)(
   connect(
-    ({ drawer }) => ({
-      disabled: drawer.disabled
+    ({ drawerState }) => ({
+      disabled: drawerState.disabled
     }),
     dispatch => ({
       drawerActions: bindActionCreators(drawerActions, dispatch)

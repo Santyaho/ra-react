@@ -6,10 +6,8 @@ import { push } from 'react-router-redux'
 
 export { drawerWidth }
 export default connect(
-  ({ drawer }) => ({
-    opened: drawer.opened,
-    disabled: drawer.disabled,
-    showedHiddenBlock: drawer.showedHiddenBlock
+  ({ drawerState, session }) => ({
+    drawerState,
   }),
   dispatch => ({
     drawerActions: bindActionCreators(drawerActions, dispatch),

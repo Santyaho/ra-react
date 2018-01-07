@@ -14,13 +14,3 @@ export const fuelSavings = {
     threeYear: 0
   }
 }
-
-export const dialogState = {
-  list: []
-}
-
-export const drawerState = {
-  opened: false,
-  disabled: false,
-  showedHiddenBlock: false
-}

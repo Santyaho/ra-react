@@ -10,15 +10,21 @@ const DIALOG_COMPONENTS = {
 
 export default class DialogRoot extends Component {
   render () {
-    const { dialog, ...actions } = this.props
+    const {  dialogState: { list }, actions } = this.props
+    const dialog = list[list.length - 1]
     if (!dialog) return <Dialog open={false} />
 
     const { dialogType, dialogProps } = dialog
     const Specificdialog = DIALOG_COMPONENTS[dialogType]
 
     return (
-      <Dialog onRequestClose={actions.hideDialog} open>
-        <Specificdialog actions={actions} dialogProps={dialogProps} />
+      <Dialog 
+        onRequestClose={actions.hideDialog} 
+        open
+      >
+        <Specificdialog 
+        actions={actions} 
+        dialogProps={dialogProps} />
       </Dialog>
     )
   }

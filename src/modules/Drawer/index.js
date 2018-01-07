@@ -1,5 +1,5 @@
 import Drawer from './Drawer.container'
-import drawerReducer from './Drawer.state'
+import { drawerState } from './Drawer.state'
 
 export default Drawer
-export { drawerReducer }
+export { drawerState }

@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import DialogRoot from './DialogRoot.view'
 import { actions } from './DialogRoot.state'
+import { bindActionCreators } from 'redux'
 
 export default connect(
-  ({ dialog: { list } }) => ({
-    dialog: list[list.length - 1]
+  ({ dialogState }) => ({
+    dialogState,
   }),
-  actions
+  dispatch => ({ actions: bindActionCreators(actions, dispatch) })
 )(DialogRoot)

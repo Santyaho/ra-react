@@ -62,15 +62,10 @@ export class ResponsiveDrawer extends Component {
   }
 
   render () {
-    const {
-      classes,
-      opened,
-      disabled,
-      drawerActions,
-      showedHiddenBlock
-    } = this.props
+    const { classes, drawerActions, drawerState, session } = this.props
     const { toggleDrawer, toggleHiddenBlock } = drawerActions
-
+    const { showedHiddenBlock, opened, disabled } = drawerState
+    
     const drawer = (
       <div className={classes.flexWrapper}>
         <Header

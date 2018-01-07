@@ -1,39 +1,34 @@
-import * as drawerActionTypes from '../../redux/drawerActionTypes'
-import { drawerState } from '../../redux/initialState'
+import createReducer from '../../utils/createReducer'
 
-const drawer = (state = drawerState, action) => {
-  switch (action.type) {
-    case drawerActionTypes.TOGGLE_DRAWER:
-      return {
-        ...state,
-        opened: !state.opened
-      }
-    case drawerActionTypes.TOGGLE_DISABLE_DRAWER:
-      return {
-        ...state,
-        disabled: !state.disabled
-      }
-    case drawerActionTypes.TOGGLE_HIDDEN_BLOCK:
-      console.log('toggleHiddenBlock', state.showedHiddenBlock)
-      return {
-        ...state,
-        showedHiddenBlock: !state.showedHiddenBlock
-      }
-    default:
-      return state
-  }
+export const DrawerState = {
+  opened: false,
+  disabled: false,
+  showedHiddenBlock: false
+}
+
+const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
+const TOGGLE_DISABLE_DRAWER = 'TOGGLE_DISABLE_DRAWER'
+const TOGGLE_HIDDEN_BLOCK = 'TOGGLE_HIDDEN_BLOCK'
+
+const drawerReducer = {
+  [TOGGLE_DRAWER]: state => ({ ...state, opened: !state.opened }),
+  [TOGGLE_DISABLE_DRAWER]: state => ({ ...state, disabled: !state.disabled }),
+  [TOGGLE_HIDDEN_BLOCK]: state => ({
+    ...state,
+    showedHiddenBlock: !state.showedHiddenBlock
+  })
 }
 
 const toggleDisableDrawer = () => ({
-  type: drawerActionTypes.TOGGLE_DISABLE_DRAWER
+  type: TOGGLE_DISABLE_DRAWER
 })
 
 export const toggleDrawer = () => ({
-  type: drawerActionTypes.TOGGLE_DRAWER
+  type: TOGGLE_DRAWER
 })
 
 const toggleHiddenBlock = () => ({
-  type: drawerActionTypes.TOGGLE_HIDDEN_BLOCK
+  type: TOGGLE_HIDDEN_BLOCK
 })
 
 export const drawerActions = {
@@ -42,4 +37,4 @@ export const drawerActions = {
   toggleHiddenBlock
 }
 
-export default drawer
+export const drawerState = createReducer(drawerReducer, DrawerState)
