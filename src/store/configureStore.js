@@ -10,9 +10,11 @@ import createHistory from 'history/createBrowserHistory'
 // 'routerMiddleware': the new way of storing route changes with redux middleware since rrV4.
 import { routerMiddleware } from 'react-router-redux'
 import rootReducer from '../redux'
+import { screenTracking, timeTracking } from '../analytics/Tracker'
 export const history = createHistory()
 
 const token = ls.get('token')
+console.log('token: ', token)
 
 export let socket = io(config.apiServerAddress, {
   query: {
@@ -20,6 +22,9 @@ export let socket = io(config.apiServerAddress, {
   },
   transports: ['websocket', 'polling']
 })
+
+socket.on('token', token => ls.save('token', token))
+
 let socketIoMiddleware = createSocketIoMiddleware(socket, 'socket/')
 
 function configureStoreProd (initialState) {
@@ -30,7 +35,9 @@ function configureStoreProd (initialState) {
     // thunk middleware can also accept an extra argument to be passed to each thunk action
     // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
     thunk,
-    reactRouterMiddleware
+    reactRouterMiddleware,
+    screenTracking,
+    timeTracking
   ]
 
   return createStore(
@@ -52,7 +59,9 @@ function configureStoreDev (initialState) {
     // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
     thunk,
     logger,
-    reactRouterMiddleware
+    reactRouterMiddleware,
+    screenTracking,
+    timeTracking
   ]
 
   const composeEnhancers =

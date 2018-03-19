@@ -7,6 +7,7 @@ import AppBar from './AppBar'
 import { withStyles } from 'material-ui/styles'
 import { rootStyle as styles } from './theme'
 import Snackbar from './SnackBar'
+import ErrorBoundary from '../components/ErrorBoundary'
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -17,13 +18,19 @@ class App extends React.Component {
     return (
       <div className={classes.root}>
         <div className={classes.appFrame}>
-          <AppBar />
+          <ErrorBoundary>
+            <AppBar />
+          </ErrorBoundary>
           <div className={classes.content}>
             <Routes />
           </div>
-          <DialogRoot />
+          <ErrorBoundary>
+            <DialogRoot />
+          </ErrorBoundary>
         </div>
-        <Snackbar />
+        <ErrorBoundary>
+          <Snackbar />
+        </ErrorBoundary>
       </div>
     )
   }

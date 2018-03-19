@@ -75,42 +75,46 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 ### Can you explain the folder structure?
 ```
 .
-├── .babelrc                  # Configures Babel
-├── .editorconfig             # Configures editor rules
-├── .eslintrc                 # Configures ESLint
-├── .gitignore                # Tells git which files to ignore
-├── .istanbul.yml             # Configure istanbul code coverage
-├── .npmrc                    # Configures npm to save exact by default
-├── README.md                 # This file.
-├── dist                      # Folder where the build script places the built app. Use this in prod.
-├── package.json              # Package configuration. The list of 3rd party libraries and utilities
-├── src                       # Source code
-│   ├── actions               # Flux/Redux actions. List of distinct actions that can occur in the app.
-│   ├── components            # React components
-│   ├── constants             # Application constants including constants for Redux
-│   ├── containers            # Top-level React components that interact with Redux
-│   ├── favicon.ico           # favicon to keep your browser from throwing a 404 during dev. Not actually used in prod build.
-│   ├── index.ejs             # Template for homepage
-│   ├── index.js              # Entry point for your app
-│   ├── reducers              # Redux reducers. Your state is altered here based on actions
-│   ├── store                 # Redux store configuration
-│   ├── styles                # CSS Styles, typically written in Sass
-│   └── utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
-├── tools                     # Node scripts that run build related tools
-│   ├── setup                 # Scripts for setting up a new project using React Slingshot
-│   │   ├── setup.js          # Configure project set up
-│   │   ├── setupMessage.js   # Display message when beginning set up
-│   │   └── setupPrompts.js   # Configure prompts for set up
-│   ├── build.js              # Runs the production build
-│   ├── chalkConfig.js        # Centralized configuration for chalk (adds color to console statements)
-│   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
-│   ├── nodeVersionCheck.js   # Confirm supported Node version is installed
-│   ├── removeDemo.js         # Remove demo app
-│   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
-│   ├── startMessage.js       # Display message when development build starts
-│   └── analyzeBundle.js      # Analyzes the webpack bundle
-├── webpack.config.dev.js     # Configures webpack for development builds
-└── webpack.config.prod.js    # Configures webpack for production builds
+├── .babelrc                            # Configures Babel
+├── .editorconfig                       # Configures editor rules
+├── .eslintrc                           # Configures ESLint
+├── .gitignore                          # Tells git which files to ignore
+├── .istanbul.yml                       # Configure istanbul code coverage
+├── .npmrc                              # Configures npm to save exact by default
+├── README.md                           # This file.
+├── dist                                # Folder where the build script places the built app. Use this in prod.
+├── package.json                        # Package configuration. The list of 3rd party libraries and utilities
+├── src                                 # Source code
+│   ├── components                      # React components that used by 2 or more modules
+│   ├── modules                         # Top-level React components that interact with Redux
+│   │   └── module                      # Module folder
+│   │       ├── comonents               # folder components that are used only in the module
+│   │       ├── index.js                # Setup exports here
+│   │       ├── module.state.js         # Reducers, initial state, actions for module
+│   │       ├── module.container.js     # Connect redux state and actions here
+│   │       └── module.view.js          # View part of module
+│   ├── index.ejs                       # Template for homepage
+│   ├── index.js                        # Entry point for your app
+│   ├── store                           # Redux store configuration
+│   ├── redux                           # ActionTypes, Session reducer, Snackbar reducer, spinner reducer 
+│   ├── root                            # Global modules for whole App
+│   ├── styles                          # CSS Styles, typically written in Sass
+│   └── utils                           # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
+├── tools                               # Node scripts that run build related tools
+│   ├── setup                           # Scripts for setting up a new project using React Slingshot
+│   │   ├── setup.js                    # Configure project set up
+│   │   ├── setupMessage.js             # Display message when beginning set up
+│   │   └── setupPrompts.js             # Configure prompts for set up
+│   ├── build.js                        # Runs the production build
+│   ├── chalkConfig.js                  # Centralized configuration for chalk (adds color to console statements)
+│   ├── distServer.js                   # Starts webserver and opens final built app that's in dist in your default browser
+│   ├── nodeVersionCheck.js             # Confirm supported Node version is installed
+│   ├── removeDemo.js                   # Remove demo app
+│   ├── srcServer.js                    # Starts dev webserver with hot reloading and opens your app in your default browser
+│   ├── startMessage.js                 # Display message when development build starts
+│   └── analyzeBundle.js                # Analyzes the webpack bundle
+├── webpack.config.dev.js               # Configures webpack for development builds
+└── webpack.config.prod.js              # Configures webpack for production builds
 ```
 
 <a name="what-are-the-dependencies-in-package.json-used-for"></a>
@@ -137,6 +141,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |coveralls|For tracking and displaying code coverage information via Coveralls.io|
 |cross-env|Cross-environment friendly way to handle environment variables|
 |css-loader|Add CSS support to Webpack|
+|dotenv-webpack|Allows ud to use .env files|
 |enzyme|Simplified JavaScript Testing utilities for React|
 |eslint|Lints JavaScript |
 |eslint-loader|Adds ESLint support to Webpack |
@@ -166,6 +171,7 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 |rimraf|Delete files, cross-platform |
 |sass-loader| Adds Sass support to Webpack|
 |style-loader| Add Style support to Webpack |
+|stackdriver-errors-js| Stackdriver client to catch errors and to send them to cloud|
 |url-loader|Add Webpack support for loading files via url with querystring |
 |webpack| Bundler with plugin system and integrated development server |
 |webpack-bundle-analyzer| Webpack plugin and CLI utility that represents bundle content as convenient interactive zoomable treemap |

@@ -40,20 +40,27 @@
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
   "dependencies": {
+    "dotenv-webpack": "1.5.5",
+    "lodash": "4.17.4",
     "material-ui": "^1.0.0-beta.18",
     "material-ui-icons": "^1.0.0-beta.17",
     "object-assign": "4.1.0",
     "react": "16.0.0",
+    "react-avatar-editor": "10.3.0",
     "react-dom": "16.0.0",
+    "react-ga": "2.4.1",
     "react-redux": "5.0.5",
     "react-router-dom": "4.2.2",
     "react-router-redux": "5.0.0-alpha.6",
     "redux": "3.6.0",
+    "redux-auth-wrapper": "2.0.2",
     "redux-socket.io": "1.4.0",
     "redux-thunk": "2.1.0",
-    "snazzy": "^7.0.0"
+    "snazzy": "^7.0.0",
+    "stackdriver-errors-js": "0.4.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "7.0.0-beta.40",
     "autoprefixer": "7.1.4",
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
@@ -123,7 +130,9 @@
     "starter"
   ],
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
       "\\.(css|less)$": "<rootDir>/tools/assetsTransformer.js"
@@ -135,8 +144,8 @@
   },
   "babel": {
     "presets": [
-      "react",
-      "stage-1"
+      "stage-1",
+      "react"
     ],
     "env": {
       "development": {
@@ -151,15 +160,14 @@
           [
             "env",
             {
-              "es2015": {
-                "modules": false
-              },
               "targets": {
                 "ie": 9,
                 "uglify": true
               }
             }
-          ]
+          ],
+          "stage-1",
+          "react"
         ],
         "plugins": [
           "transform-react-constant-elements",

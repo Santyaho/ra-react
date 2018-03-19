@@ -5,7 +5,6 @@ import { withStyles } from 'material-ui/styles'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
-import Button from 'material-ui/Button'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
 import Hidden from 'material-ui/Hidden'
@@ -14,21 +13,10 @@ import { appBar as styles } from './theme'
 import { bindActionCreators } from 'redux'
 
 class AppBarComponent extends Component {
-  constructor (props) {
-    super(props)
-    this.signOut = this.signOut.bind(this)
-  }
-
-  signOut () {
-    const { signOut, push } = this.props
-    push('/')
-    signOut()
-  }
-
   render () {
-    const { classes, disabled, drawerActions } = this.props
+    const { classes, drawerActions, opened, isLoggedIn } = this.props
     const { toggleDrawer } = drawerActions
-    const icon = disabled ? null : (
+    const icon = opened ? null : (
       <Hidden mdUp>
         <IconButton
           color='contrast'
@@ -42,18 +30,15 @@ class AppBarComponent extends Component {
     )
     return (
       <div>
-        <AppBar className={disabled ? classes.appBarFull : classes.appBar}>
+        <AppBar className={!opened ? classes.appBarFull : classes.appBar}>
           <Toolbar>
-            {icon}
+            {isLoggedIn && icon}
             <Typography type='title' color='inherit' className={classes.flex}>
               Title
             </Typography>
-            <Button onClick={this.signOut} color='inherit'>
-              Sign Out
-            </Button>
           </Toolbar>
         </AppBar>
-        <Drawer />
+        {isLoggedIn && <Drawer />}
       </div>
     )
   }
@@ -61,8 +46,9 @@ class AppBarComponent extends Component {
 
 export default withStyles(styles)(
   connect(
-    ({ drawerState }) => ({
-      disabled: drawerState.disabled
+    ({ drawerState: { opened }, session: { isLoggedIn } }) => ({
+      opened,
+      isLoggedIn
     }),
     dispatch => ({
       drawerActions: bindActionCreators(drawerActions, dispatch)

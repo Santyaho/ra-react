@@ -20,7 +20,7 @@ import SettingsIcon from 'material-ui-icons/Settings'
 export class ResponsiveDrawer extends Component {
   constructor (props) {
     super(props)
-    const { push } = props
+    const { push, signOut } = props
     this.menuItems = {
       center: [
         {
@@ -48,7 +48,7 @@ export class ResponsiveDrawer extends Component {
         {
           label: 'Sign out',
           Icon: ExitToAppIcon,
-          onClick: () => alert('you are signed out now!')
+          onClick: () => signOut()
         }
       ],
       hidden: [
@@ -62,16 +62,16 @@ export class ResponsiveDrawer extends Component {
   }
 
   render () {
-    const { classes, drawerActions, drawerState, session } = this.props
+    const { classes, drawerActions, drawerState } = this.props
     const { toggleDrawer, toggleHiddenBlock } = drawerActions
-    const { showedHiddenBlock, opened, disabled } = drawerState
-    
+    const { showedHiddenBlock, opened } = drawerState
+
     const drawer = (
       <div className={classes.flexWrapper}>
         <Header
           toggleHiddenBlock={toggleHiddenBlock}
-          primary='Name SurnameName Surname'
-          secondary='surname@gmail.comsurname@gmail.com'
+          primary='Name Surname'
+          secondary='surname@gmail.com'
         />
 
         {showedHiddenBlock ? (
@@ -103,7 +103,7 @@ export class ResponsiveDrawer extends Component {
             type='temporary'
             open={opened}
             classes={{
-              paper: disabled ? classes.drawerPaperDis : classes.drawerPaper
+              paper: opened ? classes.drawerPaperDis : classes.drawerPaper
             }}
             onRequestClose={() => {
               if (showedHiddenBlock) {
@@ -116,12 +116,12 @@ export class ResponsiveDrawer extends Component {
           </Drawer>
         </Hidden>
         <Hidden mdDown implementation='css'>
-          <div className={disabled ? classes.insideHide : classes.inside} />
+          <div className={opened ? classes.insideHide : classes.inside} />
           <Drawer
             type='persistent'
-            open={!disabled}
+            open={!opened}
             classes={{
-              paper: disabled ? classes.drawerPaperDis : classes.drawerPaper
+              paper: opened ? classes.drawerPaperDis : classes.drawerPaper
             }}
           >
             {drawer}

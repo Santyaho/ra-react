@@ -35,7 +35,7 @@ const dialogReducer = {
 
 const saveDialog = dialogProps => ({
   type: SAVE_DIALOG,
-  payload: {dialogProps}
+  payload: { dialogProps }
 })
 
 export const hideDialog = () => ({

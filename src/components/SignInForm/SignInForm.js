@@ -30,15 +30,22 @@ class SignInForm extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.signIn = this.signIn.bind(this)
+    this.onKeyPress = this.onKeyPress.bind(this)
+  }
+
+  onKeyPress ({ nativeEvent: { keyCode } }) {
+    if (keyCode === 13) {
+      this.signIn()
+    }
   }
 
   handleChange (name) {
     /* we do not want to do bind in render because of every time new function will be created  */
-    return function (event) {
+    return ({ target: { value } }) => {
       this.setState({
-        [name]: event.target.value
+        [name]: value
       })
-    }.bind(this)
+    }
   }
 
   signIn () {
@@ -49,9 +56,9 @@ class SignInForm extends Component {
       return false
     }
 
-    const { signInAPI } = this.props
+    const { signIn } = this.props
 
-    signInAPI({ email, password })
+    signIn({ email, password })
 
     this.setState({
       email: '',
@@ -76,6 +83,7 @@ class SignInForm extends Component {
                   value={email}
                   fullWidth
                   onChange={this.handleChange('email')}
+                  onKeyPress={this.onKeyPress}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -87,6 +95,7 @@ class SignInForm extends Component {
                   fullWidth
                   onChange={this.handleChange('password')}
                   type='password'
+                  onKeyPress={this.onKeyPress}
                 />
               </Grid>
             </Grid>

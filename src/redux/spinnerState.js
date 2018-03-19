@@ -1,22 +1,20 @@
 import { SPINNER, SIGN_IN } from './actionTypes'
+
 const initialState = {
   SignIn: false
 }
+
 export const showSpinner = payload => ({ SPINNER, payload })
 
 const spinnerReducers = {
-  [SPINNER]: (state, payload) => {
-    return {
-      ...state,
-      ...payload
-    }
-  },
-  [SIGN_IN]: state => {
-    return {
-      ...state,
-      SignIn: true
-    }
-  }
+  [SPINNER]: (state, payload) => ({
+    ...state,
+    ...payload
+  }),
+  [SIGN_IN]: state => ({
+    ...state,
+    SignIn: true
+  })
 }
 
 export const spinnerRootReducer = (state = initialState, action) => {

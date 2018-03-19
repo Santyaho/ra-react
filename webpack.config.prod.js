@@ -5,6 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
+import Dotenv from 'dotenv-webpack'
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
@@ -57,6 +58,7 @@ export default {
 
     // Minify JS
     new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
+    new Dotenv()
   ],
   module: {
     rules: [

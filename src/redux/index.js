@@ -6,6 +6,7 @@ import { routerReducer } from 'react-router-redux'
 import { signInRootReducer } from '../modules/SignIn/SignIn.state'
 import { snackRootReducer } from './snackReducer'
 import { spinnerRootReducer } from './spinnerState'
+import { sessionRootReducer } from './sessionState'
 
 const rootReducer = combineReducers({
   fuelSavings: fuelSavingsReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   dialogState: dialogState,
   drawerState: drawerState,
   spinner: spinnerRootReducer,
-  snack: snackRootReducer
+  snack: snackRootReducer,
+  session: sessionRootReducer
 })
 
 export default rootReducer

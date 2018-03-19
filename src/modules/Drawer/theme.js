@@ -15,9 +15,9 @@ export const styles = theme => ({
     }
   },
   drawerPaperDis: {
-    width: 0,
+    minWidth: 300,
     [theme.breakpoints.up('md')]: {
-      width: 0,
+      minWidth: 300,
       position: 'fixed',
       height: '100%'
     }

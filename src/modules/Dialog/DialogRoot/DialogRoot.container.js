@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 
 export default connect(
   ({ dialogState }) => ({
-    dialogState,
+    dialogState
   }),
   dispatch => ({ actions: bindActionCreators(actions, dispatch) })
 )(DialogRoot)
